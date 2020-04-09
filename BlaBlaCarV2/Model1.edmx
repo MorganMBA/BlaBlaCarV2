@@ -1,0 +1,532 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BlaBlaCarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AUTHENTIFICATION">
+          <Key>
+            <PropertyRef Name="ID_AUTHENTIFICATION" />
+          </Key>
+          <Property Name="ID_AUTHENTIFICATION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOM" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PRENOM" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="JOUR" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="MOIS" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="ANNEE" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="SEXE" Type="bit" Nullable="false" />
+          <Property Name="TELEPHONE" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="USERNAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PASS" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="VILLE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="VISIBILITETELEPHONE" Type="bit" Nullable="false" />
+          <Property Name="NEWSLETTRE" Type="bit" Nullable="false" />
+          <Property Name="PICTURE" Type="text" />
+          <Property Name="CODE_ACTIVATION" Type="varchar" MaxLength="8" />
+          <Property Name="COMPTE_ACTIVE" Type="bit" Nullable="false" />
+          <Property Name="DATE_INSCRIPTION" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MESSAGERIE">
+          <Key>
+            <PropertyRef Name="ID_MESSAGERIE" />
+          </Key>
+          <Property Name="ID_MESSAGERIE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_EXPEDITEUR" Type="int" Nullable="false" />
+          <Property Name="ID_DESTINATAIRE" Type="int" Nullable="false" />
+          <Property Name="SUJET" Type="varchar" MaxLength="50" />
+          <Property Name="LIB_MESSAGE" Type="text" Nullable="false" />
+          <Property Name="DT_TIMESTAMP" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="STATUT" Type="varchar" MaxLength="6" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROFIL">
+          <Key>
+            <PropertyRef Name="ID_PROFIL" />
+          </Key>
+          <Property Name="ID_PROFIL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_AUTHENTIFICATION" Type="int" Nullable="false" />
+          <Property Name="MUSIQUE" Type="bit" Nullable="false" />
+          <Property Name="FUMEUR" Type="bit" Nullable="false" />
+          <Property Name="ANIMAUX" Type="bit" Nullable="false" />
+          <Property Name="DISCUSSION" Type="bit" Nullable="false" />
+          <Property Name="DETOUR" Type="bit" Nullable="false" />
+          <Property Name="ADRESSE_1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ADRESSE_2" Type="varchar" MaxLength="50" />
+          <Property Name="CODE_POSTAL" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="PAYS" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MARQUE_VOITURE" Type="varchar" MaxLength="50" />
+          <Property Name="MODELE_VOITURE" Type="varchar" MaxLength="50" />
+          <Property Name="CONFORT_VOITURE" Type="varchar" MaxLength="50" />
+          <Property Name="NOMBRE_PLACE_VOITURE" Type="int" />
+          <Property Name="PAS_DE_VOITURE" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RESERVATION">
+          <Key>
+            <PropertyRef Name="ID_RESERVATION" />
+          </Key>
+          <Property Name="ID_RESERVATION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_AUTHENTIFICATION" Type="int" Nullable="false" />
+          <Property Name="ID_TRAJET" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TRAJET">
+          <Key>
+            <PropertyRef Name="ID_TRAJET" />
+          </Key>
+          <Property Name="ID_TRAJET" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_AUTHENTIFICATION" Type="int" Nullable="false" />
+          <Property Name="TYPE_UTILISATEUR" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="VILLE_DEPART" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CP_D" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="LIEUX_A" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LA_DATE" Type="date" Nullable="false" />
+          <Property Name="HEURE" Type="time" Precision="7" Nullable="false" />
+          <Property Name="NBR_PLACES_DISPO" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="NBR_RESERVATIONS" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="HOMME" Type="bit" Nullable="false" />
+          <Property Name="FEMME" Type="bit" Nullable="false" />
+          <Property Name="BAGAGE" Type="bit" Nullable="false" />
+          <Property Name="COlIS" Type="bit" Nullable="false" />
+          <Property Name="FUMEUR_OUI" Type="bit" Nullable="false" />
+          <Property Name="FUMEUR_NON" Type="bit" Nullable="false" />
+          <Property Name="HANDICAPE" Type="bit" Nullable="false" />
+          <Property Name="ANIMAUX" Type="bit" Nullable="false" />
+          <Property Name="PRIX" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="DATE_JOUR" Type="date" Nullable="false" />
+          <Property Name="DATE_VOYAGE" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__MESSAGERI__ID_DE__49C3F6B7">
+          <End Role="AUTHENTIFICATION" Type="Self.AUTHENTIFICATION" Multiplicity="1" />
+          <End Role="MESSAGERIE" Type="Self.MESSAGERIE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTHENTIFICATION">
+              <PropertyRef Name="ID_AUTHENTIFICATION" />
+            </Principal>
+            <Dependent Role="MESSAGERIE">
+              <PropertyRef Name="ID_DESTINATAIRE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MESSAGERI__ID_EX__48CFD27E">
+          <End Role="AUTHENTIFICATION" Type="Self.AUTHENTIFICATION" Multiplicity="1" />
+          <End Role="MESSAGERIE" Type="Self.MESSAGERIE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTHENTIFICATION">
+              <PropertyRef Name="ID_AUTHENTIFICATION" />
+            </Principal>
+            <Dependent Role="MESSAGERIE">
+              <PropertyRef Name="ID_EXPEDITEUR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PROFIL__ID_AUTHE__3F466844">
+          <End Role="AUTHENTIFICATION" Type="Self.AUTHENTIFICATION" Multiplicity="1" />
+          <End Role="PROFIL" Type="Self.PROFIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTHENTIFICATION">
+              <PropertyRef Name="ID_AUTHENTIFICATION" />
+            </Principal>
+            <Dependent Role="PROFIL">
+              <PropertyRef Name="ID_AUTHENTIFICATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RESERVATI__ID_AU__44FF419A">
+          <End Role="AUTHENTIFICATION" Type="Self.AUTHENTIFICATION" Multiplicity="1" />
+          <End Role="RESERVATION" Type="Self.RESERVATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTHENTIFICATION">
+              <PropertyRef Name="ID_AUTHENTIFICATION" />
+            </Principal>
+            <Dependent Role="RESERVATION">
+              <PropertyRef Name="ID_AUTHENTIFICATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RESERVATI__ID_TR__45F365D3">
+          <End Role="TRAJET" Type="Self.TRAJET" Multiplicity="1" />
+          <End Role="RESERVATION" Type="Self.RESERVATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRAJET">
+              <PropertyRef Name="ID_TRAJET" />
+            </Principal>
+            <Dependent Role="RESERVATION">
+              <PropertyRef Name="ID_TRAJET" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TRAJET__ID_AUTHE__4222D4EF">
+          <End Role="AUTHENTIFICATION" Type="Self.AUTHENTIFICATION" Multiplicity="1" />
+          <End Role="TRAJET" Type="Self.TRAJET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTHENTIFICATION">
+              <PropertyRef Name="ID_AUTHENTIFICATION" />
+            </Principal>
+            <Dependent Role="TRAJET">
+              <PropertyRef Name="ID_AUTHENTIFICATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BlaBlaCarModelStoreContainer">
+          <EntitySet Name="AUTHENTIFICATION" EntityType="Self.AUTHENTIFICATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MESSAGERIE" EntityType="Self.MESSAGERIE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROFIL" EntityType="Self.PROFIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RESERVATION" EntityType="Self.RESERVATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TRAJET" EntityType="Self.TRAJET" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__MESSAGERI__ID_DE__49C3F6B7" Association="Self.FK__MESSAGERI__ID_DE__49C3F6B7">
+            <End Role="AUTHENTIFICATION" EntitySet="AUTHENTIFICATION" />
+            <End Role="MESSAGERIE" EntitySet="MESSAGERIE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MESSAGERI__ID_EX__48CFD27E" Association="Self.FK__MESSAGERI__ID_EX__48CFD27E">
+            <End Role="AUTHENTIFICATION" EntitySet="AUTHENTIFICATION" />
+            <End Role="MESSAGERIE" EntitySet="MESSAGERIE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PROFIL__ID_AUTHE__3F466844" Association="Self.FK__PROFIL__ID_AUTHE__3F466844">
+            <End Role="AUTHENTIFICATION" EntitySet="AUTHENTIFICATION" />
+            <End Role="PROFIL" EntitySet="PROFIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RESERVATI__ID_AU__44FF419A" Association="Self.FK__RESERVATI__ID_AU__44FF419A">
+            <End Role="AUTHENTIFICATION" EntitySet="AUTHENTIFICATION" />
+            <End Role="RESERVATION" EntitySet="RESERVATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RESERVATI__ID_TR__45F365D3" Association="Self.FK__RESERVATI__ID_TR__45F365D3">
+            <End Role="TRAJET" EntitySet="TRAJET" />
+            <End Role="RESERVATION" EntitySet="RESERVATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TRAJET__ID_AUTHE__4222D4EF" Association="Self.FK__TRAJET__ID_AUTHE__4222D4EF">
+            <End Role="AUTHENTIFICATION" EntitySet="AUTHENTIFICATION" />
+            <End Role="TRAJET" EntitySet="TRAJET" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BlaBlaCarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AUTHENTIFICATION">
+          <Key>
+            <PropertyRef Name="ID_AUTHENTIFICATION" />
+          </Key>
+          <Property Name="ID_AUTHENTIFICATION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRENOM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="JOUR" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="MOIS" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="ANNEE" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="SEXE" Type="Boolean" Nullable="false" />
+          <Property Name="TELEPHONE" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VILLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VISIBILITETELEPHONE" Type="Boolean" Nullable="false" />
+          <Property Name="NEWSLETTRE" Type="Boolean" Nullable="false" />
+          <Property Name="PICTURE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CODE_ACTIVATION" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="COMPTE_ACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="DATE_INSCRIPTION" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="MESSAGERIEs" Relationship="Self.FK__MESSAGERI__ID_DE__49C3F6B7" FromRole="AUTHENTIFICATION" ToRole="MESSAGERIE" />
+          <NavigationProperty Name="MESSAGERIEs1" Relationship="Self.FK__MESSAGERI__ID_EX__48CFD27E" FromRole="AUTHENTIFICATION" ToRole="MESSAGERIE" />
+          <NavigationProperty Name="PROFILs" Relationship="Self.FK__PROFIL__ID_AUTHE__3F466844" FromRole="AUTHENTIFICATION" ToRole="PROFIL" />
+          <NavigationProperty Name="RESERVATIONs" Relationship="Self.FK__RESERVATI__ID_AU__44FF419A" FromRole="AUTHENTIFICATION" ToRole="RESERVATION" />
+          <NavigationProperty Name="TRAJETs" Relationship="Self.FK__TRAJET__ID_AUTHE__4222D4EF" FromRole="AUTHENTIFICATION" ToRole="TRAJET" />
+        </EntityType>
+        <EntityType Name="MESSAGERIE">
+          <Key>
+            <PropertyRef Name="ID_MESSAGERIE" />
+          </Key>
+          <Property Name="ID_MESSAGERIE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_EXPEDITEUR" Type="Int32" Nullable="false" />
+          <Property Name="ID_DESTINATAIRE" Type="Int32" Nullable="false" />
+          <Property Name="SUJET" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LIB_MESSAGE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DT_TIMESTAMP" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="STATUT" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AUTHENTIFICATION" Relationship="Self.FK__MESSAGERI__ID_DE__49C3F6B7" FromRole="MESSAGERIE" ToRole="AUTHENTIFICATION" />
+          <NavigationProperty Name="AUTHENTIFICATION1" Relationship="Self.FK__MESSAGERI__ID_EX__48CFD27E" FromRole="MESSAGERIE" ToRole="AUTHENTIFICATION" />
+        </EntityType>
+        <EntityType Name="PROFIL">
+          <Key>
+            <PropertyRef Name="ID_PROFIL" />
+          </Key>
+          <Property Name="ID_PROFIL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_AUTHENTIFICATION" Type="Int32" Nullable="false" />
+          <Property Name="MUSIQUE" Type="Boolean" Nullable="false" />
+          <Property Name="FUMEUR" Type="Boolean" Nullable="false" />
+          <Property Name="ANIMAUX" Type="Boolean" Nullable="false" />
+          <Property Name="DISCUSSION" Type="Boolean" Nullable="false" />
+          <Property Name="DETOUR" Type="Boolean" Nullable="false" />
+          <Property Name="ADRESSE_1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ADRESSE_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CODE_POSTAL" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="PAYS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MARQUE_VOITURE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MODELE_VOITURE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CONFORT_VOITURE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE_PLACE_VOITURE" Type="Int32" />
+          <Property Name="PAS_DE_VOITURE" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AUTHENTIFICATION" Relationship="Self.FK__PROFIL__ID_AUTHE__3F466844" FromRole="PROFIL" ToRole="AUTHENTIFICATION" />
+        </EntityType>
+        <EntityType Name="RESERVATION">
+          <Key>
+            <PropertyRef Name="ID_RESERVATION" />
+          </Key>
+          <Property Name="ID_RESERVATION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_AUTHENTIFICATION" Type="Int32" Nullable="false" />
+          <Property Name="ID_TRAJET" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AUTHENTIFICATION" Relationship="Self.FK__RESERVATI__ID_AU__44FF419A" FromRole="RESERVATION" ToRole="AUTHENTIFICATION" />
+          <NavigationProperty Name="TRAJET" Relationship="Self.FK__RESERVATI__ID_TR__45F365D3" FromRole="RESERVATION" ToRole="TRAJET" />
+        </EntityType>
+        <EntityType Name="TRAJET">
+          <Key>
+            <PropertyRef Name="ID_TRAJET" />
+          </Key>
+          <Property Name="ID_TRAJET" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_AUTHENTIFICATION" Type="Int32" Nullable="false" />
+          <Property Name="TYPE_UTILISATEUR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VILLE_DEPART" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CP_D" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="LIEUX_A" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LA_DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="HEURE" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="NBR_PLACES_DISPO" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="NBR_RESERVATIONS" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="HOMME" Type="Boolean" Nullable="false" />
+          <Property Name="FEMME" Type="Boolean" Nullable="false" />
+          <Property Name="BAGAGE" Type="Boolean" Nullable="false" />
+          <Property Name="COlIS" Type="Boolean" Nullable="false" />
+          <Property Name="FUMEUR_OUI" Type="Boolean" Nullable="false" />
+          <Property Name="FUMEUR_NON" Type="Boolean" Nullable="false" />
+          <Property Name="HANDICAPE" Type="Boolean" Nullable="false" />
+          <Property Name="ANIMAUX" Type="Boolean" Nullable="false" />
+          <Property Name="PRIX" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="DATE_JOUR" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DATE_VOYAGE" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="AUTHENTIFICATION" Relationship="Self.FK__TRAJET__ID_AUTHE__4222D4EF" FromRole="TRAJET" ToRole="AUTHENTIFICATION" />
+          <NavigationProperty Name="RESERVATIONs" Relationship="Self.FK__RESERVATI__ID_TR__45F365D3" FromRole="TRAJET" ToRole="RESERVATION" />
+        </EntityType>
+        <Association Name="FK__MESSAGERI__ID_DE__49C3F6B7">
+          <End Role="AUTHENTIFICATION" Type="Self.AUTHENTIFICATION" Multiplicity="1" />
+          <End Role="MESSAGERIE" Type="Self.MESSAGERIE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTHENTIFICATION">
+              <PropertyRef Name="ID_AUTHENTIFICATION" />
+            </Principal>
+            <Dependent Role="MESSAGERIE">
+              <PropertyRef Name="ID_DESTINATAIRE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MESSAGERI__ID_EX__48CFD27E">
+          <End Role="AUTHENTIFICATION" Type="Self.AUTHENTIFICATION" Multiplicity="1" />
+          <End Role="MESSAGERIE" Type="Self.MESSAGERIE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTHENTIFICATION">
+              <PropertyRef Name="ID_AUTHENTIFICATION" />
+            </Principal>
+            <Dependent Role="MESSAGERIE">
+              <PropertyRef Name="ID_EXPEDITEUR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PROFIL__ID_AUTHE__3F466844">
+          <End Role="AUTHENTIFICATION" Type="Self.AUTHENTIFICATION" Multiplicity="1" />
+          <End Role="PROFIL" Type="Self.PROFIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTHENTIFICATION">
+              <PropertyRef Name="ID_AUTHENTIFICATION" />
+            </Principal>
+            <Dependent Role="PROFIL">
+              <PropertyRef Name="ID_AUTHENTIFICATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RESERVATI__ID_AU__44FF419A">
+          <End Role="AUTHENTIFICATION" Type="Self.AUTHENTIFICATION" Multiplicity="1" />
+          <End Role="RESERVATION" Type="Self.RESERVATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTHENTIFICATION">
+              <PropertyRef Name="ID_AUTHENTIFICATION" />
+            </Principal>
+            <Dependent Role="RESERVATION">
+              <PropertyRef Name="ID_AUTHENTIFICATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TRAJET__ID_AUTHE__4222D4EF">
+          <End Role="AUTHENTIFICATION" Type="Self.AUTHENTIFICATION" Multiplicity="1" />
+          <End Role="TRAJET" Type="Self.TRAJET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTHENTIFICATION">
+              <PropertyRef Name="ID_AUTHENTIFICATION" />
+            </Principal>
+            <Dependent Role="TRAJET">
+              <PropertyRef Name="ID_AUTHENTIFICATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RESERVATI__ID_TR__45F365D3">
+          <End Role="TRAJET" Type="Self.TRAJET" Multiplicity="1" />
+          <End Role="RESERVATION" Type="Self.RESERVATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRAJET">
+              <PropertyRef Name="ID_TRAJET" />
+            </Principal>
+            <Dependent Role="RESERVATION">
+              <PropertyRef Name="ID_TRAJET" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BlaBlaCarDBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AUTHENTIFICATIONs" EntityType="Self.AUTHENTIFICATION" />
+          <EntitySet Name="MESSAGERIEs" EntityType="Self.MESSAGERIE" />
+          <EntitySet Name="PROFILs" EntityType="Self.PROFIL" />
+          <EntitySet Name="RESERVATIONs" EntityType="Self.RESERVATION" />
+          <EntitySet Name="TRAJETs" EntityType="Self.TRAJET" />
+          <AssociationSet Name="FK__MESSAGERI__ID_DE__49C3F6B7" Association="Self.FK__MESSAGERI__ID_DE__49C3F6B7">
+            <End Role="AUTHENTIFICATION" EntitySet="AUTHENTIFICATIONs" />
+            <End Role="MESSAGERIE" EntitySet="MESSAGERIEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MESSAGERI__ID_EX__48CFD27E" Association="Self.FK__MESSAGERI__ID_EX__48CFD27E">
+            <End Role="AUTHENTIFICATION" EntitySet="AUTHENTIFICATIONs" />
+            <End Role="MESSAGERIE" EntitySet="MESSAGERIEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PROFIL__ID_AUTHE__3F466844" Association="Self.FK__PROFIL__ID_AUTHE__3F466844">
+            <End Role="AUTHENTIFICATION" EntitySet="AUTHENTIFICATIONs" />
+            <End Role="PROFIL" EntitySet="PROFILs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RESERVATI__ID_AU__44FF419A" Association="Self.FK__RESERVATI__ID_AU__44FF419A">
+            <End Role="AUTHENTIFICATION" EntitySet="AUTHENTIFICATIONs" />
+            <End Role="RESERVATION" EntitySet="RESERVATIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TRAJET__ID_AUTHE__4222D4EF" Association="Self.FK__TRAJET__ID_AUTHE__4222D4EF">
+            <End Role="AUTHENTIFICATION" EntitySet="AUTHENTIFICATIONs" />
+            <End Role="TRAJET" EntitySet="TRAJETs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RESERVATI__ID_TR__45F365D3" Association="Self.FK__RESERVATI__ID_TR__45F365D3">
+            <End Role="TRAJET" EntitySet="TRAJETs" />
+            <End Role="RESERVATION" EntitySet="RESERVATIONs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BlaBlaCarModelStoreContainer" CdmEntityContainer="BlaBlaCarDBContext">
+          <EntitySetMapping Name="AUTHENTIFICATIONs">
+            <EntityTypeMapping TypeName="BlaBlaCarModel.AUTHENTIFICATION">
+              <MappingFragment StoreEntitySet="AUTHENTIFICATION">
+                <ScalarProperty Name="ID_AUTHENTIFICATION" ColumnName="ID_AUTHENTIFICATION" />
+                <ScalarProperty Name="NOM" ColumnName="NOM" />
+                <ScalarProperty Name="PRENOM" ColumnName="PRENOM" />
+                <ScalarProperty Name="JOUR" ColumnName="JOUR" />
+                <ScalarProperty Name="MOIS" ColumnName="MOIS" />
+                <ScalarProperty Name="ANNEE" ColumnName="ANNEE" />
+                <ScalarProperty Name="SEXE" ColumnName="SEXE" />
+                <ScalarProperty Name="TELEPHONE" ColumnName="TELEPHONE" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="PASS" ColumnName="PASS" />
+                <ScalarProperty Name="VILLE" ColumnName="VILLE" />
+                <ScalarProperty Name="VISIBILITETELEPHONE" ColumnName="VISIBILITETELEPHONE" />
+                <ScalarProperty Name="NEWSLETTRE" ColumnName="NEWSLETTRE" />
+                <ScalarProperty Name="PICTURE" ColumnName="PICTURE" />
+                <ScalarProperty Name="CODE_ACTIVATION" ColumnName="CODE_ACTIVATION" />
+                <ScalarProperty Name="COMPTE_ACTIVE" ColumnName="COMPTE_ACTIVE" />
+                <ScalarProperty Name="DATE_INSCRIPTION" ColumnName="DATE_INSCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MESSAGERIEs">
+            <EntityTypeMapping TypeName="BlaBlaCarModel.MESSAGERIE">
+              <MappingFragment StoreEntitySet="MESSAGERIE">
+                <ScalarProperty Name="ID_MESSAGERIE" ColumnName="ID_MESSAGERIE" />
+                <ScalarProperty Name="ID_EXPEDITEUR" ColumnName="ID_EXPEDITEUR" />
+                <ScalarProperty Name="ID_DESTINATAIRE" ColumnName="ID_DESTINATAIRE" />
+                <ScalarProperty Name="SUJET" ColumnName="SUJET" />
+                <ScalarProperty Name="LIB_MESSAGE" ColumnName="LIB_MESSAGE" />
+                <ScalarProperty Name="DT_TIMESTAMP" ColumnName="DT_TIMESTAMP" />
+                <ScalarProperty Name="STATUT" ColumnName="STATUT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROFILs">
+            <EntityTypeMapping TypeName="BlaBlaCarModel.PROFIL">
+              <MappingFragment StoreEntitySet="PROFIL">
+                <ScalarProperty Name="ID_PROFIL" ColumnName="ID_PROFIL" />
+                <ScalarProperty Name="ID_AUTHENTIFICATION" ColumnName="ID_AUTHENTIFICATION" />
+                <ScalarProperty Name="MUSIQUE" ColumnName="MUSIQUE" />
+                <ScalarProperty Name="FUMEUR" ColumnName="FUMEUR" />
+                <ScalarProperty Name="ANIMAUX" ColumnName="ANIMAUX" />
+                <ScalarProperty Name="DISCUSSION" ColumnName="DISCUSSION" />
+                <ScalarProperty Name="DETOUR" ColumnName="DETOUR" />
+                <ScalarProperty Name="ADRESSE_1" ColumnName="ADRESSE_1" />
+                <ScalarProperty Name="ADRESSE_2" ColumnName="ADRESSE_2" />
+                <ScalarProperty Name="CODE_POSTAL" ColumnName="CODE_POSTAL" />
+                <ScalarProperty Name="PAYS" ColumnName="PAYS" />
+                <ScalarProperty Name="MARQUE_VOITURE" ColumnName="MARQUE_VOITURE" />
+                <ScalarProperty Name="MODELE_VOITURE" ColumnName="MODELE_VOITURE" />
+                <ScalarProperty Name="CONFORT_VOITURE" ColumnName="CONFORT_VOITURE" />
+                <ScalarProperty Name="NOMBRE_PLACE_VOITURE" ColumnName="NOMBRE_PLACE_VOITURE" />
+                <ScalarProperty Name="PAS_DE_VOITURE" ColumnName="PAS_DE_VOITURE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RESERVATIONs">
+            <EntityTypeMapping TypeName="BlaBlaCarModel.RESERVATION">
+              <MappingFragment StoreEntitySet="RESERVATION">
+                <ScalarProperty Name="ID_RESERVATION" ColumnName="ID_RESERVATION" />
+                <ScalarProperty Name="ID_AUTHENTIFICATION" ColumnName="ID_AUTHENTIFICATION" />
+                <ScalarProperty Name="ID_TRAJET" ColumnName="ID_TRAJET" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRAJETs">
+            <EntityTypeMapping TypeName="BlaBlaCarModel.TRAJET">
+              <MappingFragment StoreEntitySet="TRAJET">
+                <ScalarProperty Name="ID_TRAJET" ColumnName="ID_TRAJET" />
+                <ScalarProperty Name="ID_AUTHENTIFICATION" ColumnName="ID_AUTHENTIFICATION" />
+                <ScalarProperty Name="TYPE_UTILISATEUR" ColumnName="TYPE_UTILISATEUR" />
+                <ScalarProperty Name="VILLE_DEPART" ColumnName="VILLE_DEPART" />
+                <ScalarProperty Name="CP_D" ColumnName="CP_D" />
+                <ScalarProperty Name="LIEUX_A" ColumnName="LIEUX_A" />
+                <ScalarProperty Name="LA_DATE" ColumnName="LA_DATE" />
+                <ScalarProperty Name="HEURE" ColumnName="HEURE" />
+                <ScalarProperty Name="NBR_PLACES_DISPO" ColumnName="NBR_PLACES_DISPO" />
+                <ScalarProperty Name="NBR_RESERVATIONS" ColumnName="NBR_RESERVATIONS" />
+                <ScalarProperty Name="HOMME" ColumnName="HOMME" />
+                <ScalarProperty Name="FEMME" ColumnName="FEMME" />
+                <ScalarProperty Name="BAGAGE" ColumnName="BAGAGE" />
+                <ScalarProperty Name="COlIS" ColumnName="COlIS" />
+                <ScalarProperty Name="FUMEUR_OUI" ColumnName="FUMEUR_OUI" />
+                <ScalarProperty Name="FUMEUR_NON" ColumnName="FUMEUR_NON" />
+                <ScalarProperty Name="HANDICAPE" ColumnName="HANDICAPE" />
+                <ScalarProperty Name="ANIMAUX" ColumnName="ANIMAUX" />
+                <ScalarProperty Name="PRIX" ColumnName="PRIX" />
+                <ScalarProperty Name="DATE_JOUR" ColumnName="DATE_JOUR" />
+                <ScalarProperty Name="DATE_VOYAGE" ColumnName="DATE_VOYAGE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

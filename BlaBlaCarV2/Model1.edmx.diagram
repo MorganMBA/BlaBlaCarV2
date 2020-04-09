@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="78c16dcf82494ca7837479b1687e0fed" Name="Diagram1">
+        <EntityTypeShape EntityType="BlaBlaCarModel.AUTHENTIFICATION" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlaBlaCarModel.MESSAGERIE" Width="1.5" PointX="5.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlaBlaCarModel.PROFIL" Width="1.5" PointX="5.875" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlaBlaCarModel.RESERVATION" Width="1.5" PointX="6.875" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlaBlaCarModel.TRAJET" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
+        <AssociationConnector Association="BlaBlaCarModel.FK__MESSAGERI__ID_DE__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="BlaBlaCarModel.FK__MESSAGERI__ID_EX__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="BlaBlaCarModel.FK__PROFIL__ID_AUTHE__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="BlaBlaCarModel.FK__RESERVATI__ID_AU__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="BlaBlaCarModel.FK__TRAJET__ID_AUTHE__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="BlaBlaCarModel.FK__RESERVATI__ID_TR__45F365D3" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
