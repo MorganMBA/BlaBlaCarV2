@@ -10,6 +10,12 @@ namespace BlaBlaCarV2
     {
         static void Main(string[] args)
         {
+            BlaBlaCarDBContext db = new BlaBlaCarDBContext();
+            AUTHENTIFICATION UserAuth = new AUTHENTIFICATION();
+
+            UserAuth.NOM = "NEMMENE";
+            UserAuth.PRENOM = "Dumesnil";
+
             Console.WriteLine("BlaBlaCarV2");
             Console.ReadLine();
         }
