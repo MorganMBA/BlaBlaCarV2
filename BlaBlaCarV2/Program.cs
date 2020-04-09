@@ -11,6 +11,7 @@ namespace BlaBlaCarV2
         static void Main(string[] args)
         {
             Console.WriteLine("BlaBlaCarV2");
+            Console.ReadLine();
         }
     }
 }
